@@ -5,7 +5,7 @@ export default function Home({isConnected}) {
 	return (
 		<div>
 			<Head>
-				<title>Create Next App</title>
+				<title>Reel Ratings</title>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 		</div>
