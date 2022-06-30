@@ -17,14 +17,14 @@ export default function Home({isConnected}) {
 
 export async function getServerSideProps(context) {
 	try {
-		await clientPromise
+		// await clientPromise
 		return {
-			props: {isConnected: true}
+			// props: {isConnected: true}
 		}
 	} catch (e) {
 		console.error(e)
 		return {
-			props: {isConnected: false}
+			// props: {isConnected: false}
 		}
 	}
 }
