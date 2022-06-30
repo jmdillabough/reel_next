@@ -10,7 +10,7 @@ export default function Movie({movies}) {
 			) : (
 				movies.results?.map((movie) => (
 					<div
-						className='card w-1/5 bg-base-100 shadow-xl mx-auto'
+						className='sm:w-1/5 card bg-base-100 shadow-xl mx-auto'
 						key={movie.id}
 					>
 						<figure>
@@ -19,17 +19,14 @@ export default function Movie({movies}) {
 								alt='Movie'
 							/>
 						</figure>
-						<div className='card-body'>
+						{/* <div className='card-body'>
 							<h2 className='card-title text-base justify-center mb-2'>
 								Rating: {movie.vote_average}
-							</h2>
-							<h2 className='card-title text-sm justify-center mb-2'>
-								Released: {movie.release_date}
 							</h2>
 							<div className='card-actions  justify-center'>
 								<Button text={'Read more'} />
 							</div>
-						</div>
+						</div> */}
 					</div>
 				))
 			)}

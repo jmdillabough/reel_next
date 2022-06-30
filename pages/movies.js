@@ -2,7 +2,7 @@ import Movie from '../components/Movie'
 
 export default function movies({movies}) {
 	return (
-		<div className='py-10'>
+		<div className='py-10 mx-auto'>
 			<div>
 				<h2 className='"text-2xl font-extrabold sm:text-3xl lg:text-5xl text-center font-title mb-2 mt-10"'>
 					Popular Movies
