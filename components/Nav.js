@@ -42,7 +42,7 @@ export default function Nav() {
 				</div>
 			</div>
 			<div className='navbar-center'>
-				<a className='btn btn-ghost normal-case text-xl'>
+				<a href='/' className='btn btn-ghost normal-case text-xl'>
 					Reel <span className='text-red-600 text-3xl'>rating</span>
 				</a>
 			</div>

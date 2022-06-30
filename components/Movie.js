@@ -20,8 +20,13 @@ export default function Movie({movies}) {
 							/>
 						</figure>
 						<div className='card-body'>
-							<h2 className='card-title'>Rating: {movie.vote_average}</h2>
-							<div className='card-actions  justify-centrer'>
+							<h2 className='card-title text-base justify-center mb-2'>
+								Rating: {movie.vote_average}
+							</h2>
+							<h2 className='card-title text-sm justify-center mb-2'>
+								Released: {movie.release_date}
+							</h2>
+							<div className='card-actions  justify-center'>
 								<Button text={'Read more'} />
 							</div>
 						</div>

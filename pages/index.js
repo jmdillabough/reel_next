@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import clientPromise from '../lib/mongodb'
 
+import Hero from './hero'
+
 export default function Home({isConnected}) {
 	return (
 		<div>
@@ -8,6 +10,7 @@ export default function Home({isConnected}) {
 				<title>Reel Ratings</title>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
+			<Hero />
 		</div>
 	)
 }
