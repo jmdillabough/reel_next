@@ -1,10 +1,12 @@
 import Link from 'next/link'
 
+import login from '../pages/login'
+
 export default function Nav() {
 	return (
 		<div className='navbar bg-base-100'>
 			<div className='navbar-start'>
-				<div className='dropdown'>
+				<div className='dropdown' data-dropdown-toggle='dropdow'>
 					<label tabIndex='0' className='btn btn-ghost btn-circle'>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
@@ -36,7 +38,9 @@ export default function Nav() {
 							</Link>
 						</li>
 						<li>
-							<a>Account</a>
+							<Link href='/login'>
+								<a>Sign In</a>
+							</Link>
 						</li>
 					</ul>
 				</div>

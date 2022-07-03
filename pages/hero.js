@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Hero() {
 	return (
-		<section className='relative'>
+		<section className='relative mx-auto justify-center w-screen'>
 			<div
 				className='absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none'
 				aria-hidden='true'
@@ -13,19 +13,6 @@ export default function Hero() {
 					viewBox='0 0 1360 578'
 					xmlns='http://www.w3.org/2000/svg'
 				>
-					<defs>
-						<linearGradient
-							x1='50%'
-							y1='0%'
-							x2='50%'
-							y2='100%'
-							id='illustration-01'
-						>
-							<stop stopColor='#FFF' offset='0%' />
-							<stop stopColor='#EAEAEA' offset='77.402%' />
-							<stop stopColor='#DFDFDF' offset='100%' />
-						</linearGradient>
-					</defs>
 					<g fill='url(#illustration-01)' fillRule='evenodd'>
 						<circle cx='1232' cy='128' r='128' />
 						<circle cx='155' cy='443' r='64' />
@@ -42,14 +29,14 @@ export default function Hero() {
 							className='text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4'
 							data-aos='zoom-y-out'
 						>
-							Make your website{' '}
+							Reel{' '}
 							<span className='bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400'>
-								wonderful
+								Ratings
 							</span>
 						</h1>
 						<div className='max-w-3xl mx-auto'>
 							<p
-								className='text-xl text-gray-800 mb-8 prose'
+								className='text-xl text-stone-300 mb-8 prose'
 								data-aos='zoom-y-out'
 								data-aos-delay='150'
 							>
@@ -91,7 +78,7 @@ export default function Hero() {
 							<div className='flex flex-col justify-center'>
 								<Image
 									className='mx-auto'
-									src='/cchaplin.jpeg'
+									src='/cchaplin1.jpeg'
 									width='700'
 									height='400'
 									alt='Hero'

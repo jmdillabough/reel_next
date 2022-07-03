@@ -5,7 +5,7 @@ import Hero from './hero'
 
 export default function Home({isConnected}) {
 	return (
-		<div>
+		<div className='w-screen h-screen overflow-hidden' data-theme='night'>
 			<Head>
 				<title>Reel Ratings</title>
 				<link rel='icon' href='/favicon.ico' />
@@ -15,16 +15,16 @@ export default function Home({isConnected}) {
 	)
 }
 
-// export async function getServerSideProps(context) {
-// 	try {
-// 		// await clientPromise
-// 		return {
-// 			// props: {isConnected: true}
-// 		}
-// 	} catch (e) {
-// 		console.error(e)
-// 		return {
-// 			// props: {isConnected: false}
-// 		}
-// 	}
-// }
+export async function getServerSideProps(context) {
+	try {
+		await clientPromise
+		return {
+			props: {isConnected: true}
+		}
+	} catch (e) {
+		console.error(e)
+		return {
+			props: {isConnected: false}
+		}
+	}
+}

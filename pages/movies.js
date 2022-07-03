@@ -19,7 +19,6 @@ export async function getServerSideProps(context) {
 		`${baseUrl}popular?api_key=${process.env.TMBD_API}`
 	)
 	let movies = await results.json()
-	console.log(movies)
 	return {
 		props: {
 			movies
