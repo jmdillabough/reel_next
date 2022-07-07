@@ -2,7 +2,12 @@ import {useState, useEffect} from 'react'
 import {useRouter} from 'next/router'
 import Link from 'next/link'
 
+//Next-auth
+import {useSession, signIn, signOut} from 'next-auth/react'
+
 export default function login() {
+	const {data: session} = useSession()
+
 	const router = useRouter()
 	const [errorMsg, setErrorMsg] = useState('')
 	const [loading, isLoading] = useState(false)
@@ -25,6 +30,14 @@ export default function login() {
 			isLoading(false)
 			setErrorMsg('Incorrect username or password. Try again!')
 		}
+	}
+	if (session) {
+		return (
+			<>
+				Signed in as {session.user.email} <br />
+				<button onClick={() => signOut()}>Sign out</button>
+			</>
+		)
 	}
 	return (
 		<section className='h-full w-screen text-center gradient-form bg-red-400 md:h-screen flex items-center justify-center h-screen"'>

@@ -1,7 +1,11 @@
+import connectMongo from '../../models/User'
+
 import bcrypt from 'bcryptjs'
 import User from '../../models/User'
 
 export default async function handler(req, res) {
+	await connectMongo()
+
 	const {username, password} = req.body
 	const user = await User.findOne({username})
 

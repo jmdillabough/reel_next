@@ -8,9 +8,14 @@ import User from '../../models/User'
  */
 
 export default async function addUser(req, res) {
-	const {username, password} = req.body
-	console.log('Connecting to Mongo')
 	await connectMongo()
+	const {username, password} = req.body
+	const userExists = await User.findOne({username})
+	if (userExists) {
+		res.status(400).json({err: '💣 User is already registered 💣'})
+		return
+	}
+	console.log('Connecting to Mongo')
 	console.log('Connected to Mongo')
 
 	const user = await User.create(req.body)
