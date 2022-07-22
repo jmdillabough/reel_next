@@ -14,13 +14,6 @@ export default function login({data}) {
 
 	return (
 		<section className='h-full w-screen text-center gradient-form bg-red-400 md:h-screen flex items-center justify-center h-screen"'>
-			<video
-				className='w-screen h-screen'
-				src={
-					'https://www.themoviedb.org/movie/788396-chasing-chaplin?language=en-US#play=0ApMSyQkk1c'
-				}
-				autoPlay
-			></video>
 			<div className='container py-12 px-6 h-full w-screen justify-center'>
 				<div className='flex justify-center items-center flex-wrap h-full w-full g-6 text-gray-800 mx-auto'>
 					<div className='mx-auto'>
