@@ -1,6 +1,7 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
-export default function Hero() {
+export default function Hero({data}) {
 	return (
 		<section className='relative mx-auto justify-center w-screen'>
 			<div
@@ -21,9 +22,7 @@ export default function Hero() {
 			</div>
 
 			<div className='max-w-6xl mx-auto px-4 sm:px-6'>
-				{/* Hero content */}
 				<div className='pt-32 pb-12 md:pt-40 md:pb-20'>
-					{/* Section header */}
 					<div className='text-center pb-12 md:pb-16'>
 						<h1
 							className='text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4'
@@ -49,20 +48,22 @@ export default function Hero() {
 								data-aos-delay='300'
 							>
 								<div>
-									<a
-										className='btn text-white bg-red-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4'
-										href='#0'
-									>
-										Sign In
-									</a>
+									<Link href='/login'>
+										<p
+											className='btn text-white bg-red-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4'
+											href='#0'
+										>
+											Sign In
+										</p>
+									</Link>
 								</div>
 								<div>
-									<a
+									<p
 										className='btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4'
 										href='#0'
 									>
 										Create an Account!
-									</a>
+									</p>
 								</div>
 							</div>
 						</div>
@@ -150,17 +151,22 @@ export default function Hero() {
 								className='absolute top-full flex items-center transform -translate-y-1/2 bg-white rounded-full font-medium group p-4 shadow-lg'
 								aria-controls='modal'
 							>
-								<svg
-									className='w-6 h-6 fill-current text-gray-400 group-hover:text-blue-600 flex-shrink-0'
-									viewBox='0 0 24 24'
-									xmlns='http://www.w3.org/2000/svg'
-								>
-									<path d='M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm0 2C5.373 24 0 18.627 0 12S5.373 0 12 0s12 5.373 12 12-5.373 12-12 12z' />
-									<path d='M10 17l6-5-6-5z' />
-								</svg>
-								<span className='ml-3'>Watch the trailer</span>
+								<label htmlFor='my-modal-6' className='btn modal-button'>
+									open modal
+								</label>
 							</button>
 						</div>
+					</div>
+				</div>
+			</div>
+			<input type='checkbox' id='my-modal-6' className='modal-toggle' />
+			<div className='modal modal-bottom sm:modal-middle'>
+				<div className='modal-box'>
+					<video src={data} type='video'></video>
+					<div className='modal-action'>
+						<label htmlFor='my-modal-6' className='btn'>
+							Close
+						</label>
 					</div>
 				</div>
 			</div>

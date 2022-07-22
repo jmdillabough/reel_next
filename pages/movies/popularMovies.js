@@ -1,6 +1,6 @@
-import Movie from '../components/Movie'
+import Movie from '../../components/Movie'
 
-export default function movies({movies}) {
+export default function movies({popMovies}) {
 	return (
 		<div className='py-10 mx-auto'>
 			<div>
@@ -8,20 +8,20 @@ export default function movies({movies}) {
 					Popular Movies
 				</h2>
 			</div>
-			<Movie movies={movies} />
+			<Movie popMovies={popMovies} />
 		</div>
 	)
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
 	const baseUrl = `https://api.themoviedb.org/3/movie/`
 	const results = await fetch(
-		`${baseUrl}popular?api_key=${process.env.TMBD_API}`
+		`${baseUrl}popular?api_key=${process.env.TMDB_API}`
 	)
-	let movies = await results.json()
+	let popMovies = await results.json()
 	return {
 		props: {
-			movies
+			popMovies
 		}
 	}
 }

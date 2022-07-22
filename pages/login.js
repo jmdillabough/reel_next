@@ -1,46 +1,26 @@
-import {useState, useEffect} from 'react'
-import {useRouter} from 'next/router'
 import Link from 'next/link'
+import {useForm} from 'react-hook-form'
 
-//Next-auth
-import {useSession, signIn, signOut} from 'next-auth/react'
+export default function login({data}) {
+	const {
+		handleSubmit,
+		register,
+		formState: {errors}
+	} = useForm()
 
-export default function login() {
-	const {data: session} = useSession()
-
-	const router = useRouter()
-	const [errorMsg, setErrorMsg] = useState('')
-	const [loading, isLoading] = useState(false)
-	useEffect(() => {
-		// redirect to home if user is authenticated
-		if (user) router.replace('/')
-	}, [user])
-
-	async function onSubmit(e) {
-		isLoading(true)
-		e.preventDefault()
-		const res = await fetch('/api/user/register', {
-			method: 'POST',
-			headers: {'Content-Type': 'application/json'}
-		})
-		if (res.status === 200) {
-			const userObj = await res.json()
-			res.send(userObj)
-		} else {
-			isLoading(false)
-			setErrorMsg('Incorrect username or password. Try again!')
-		}
+	const submitHandler = ({email, password}) => {
+		console.log(register)
 	}
-	if (session) {
-		return (
-			<>
-				Signed in as {session.user.email} <br />
-				<button onClick={() => signOut()}>Sign out</button>
-			</>
-		)
-	}
+
 	return (
 		<section className='h-full w-screen text-center gradient-form bg-red-400 md:h-screen flex items-center justify-center h-screen"'>
+			<video
+				className='w-screen h-screen'
+				src={
+					'https://www.themoviedb.org/movie/788396-chasing-chaplin?language=en-US#play=0ApMSyQkk1c'
+				}
+				autoPlay
+			></video>
 			<div className='container py-12 px-6 h-full w-screen justify-center'>
 				<div className='flex justify-center items-center flex-wrap h-full w-full g-6 text-gray-800 mx-auto'>
 					<div className='mx-auto'>
@@ -56,7 +36,7 @@ export default function login() {
 												</div>
 											</div>
 										</div>
-										<form onSubmit={onSubmit}>
+										<form onSubmit={handleSubmit(submitHandler)}>
 											<p className='mb-10 text-center prose'>
 												Please login to your account
 											</p>
@@ -65,7 +45,8 @@ export default function login() {
 													type='text'
 													className='form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
 													id='exampleFormControlInput1'
-													placeholder='Username'
+													{...register('email')}
+													placeholder='email'
 												/>
 											</div>
 											<div className='mb-4'>

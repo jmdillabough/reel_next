@@ -33,7 +33,7 @@ export default function Nav() {
 							</Link>
 						</li>
 						<li>
-							<Link href='/movies'>
+							<Link href='/movies/popularMovies'>
 								<a>Popular Movies</a>
 							</Link>
 						</li>
