@@ -32,7 +32,9 @@ export default function Movie({popMovies}) {
 								Rating: {movie.vote_average}
 							</h2>
 							<div className='card-actions  justify-center'>
-								<button class=' bg-black text-white btn glass'>Details</button>
+								<button className=' bg-black text-white btn glass'>
+									Details
+								</button>
 							</div>
 						</div>
 					</div>
