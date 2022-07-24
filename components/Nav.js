@@ -1,12 +1,27 @@
 import Link from 'next/link'
-
-import login from '../pages/login'
+import {useState} from 'react'
 
 export default function Nav() {
+	const [menuDisplay, setmenuDisplay] = useState(true)
+	const [displayMenuStyle, setdisplayMenuStyle] = useState('')
+
+	const showMenu = () => {
+		setmenuDisplay(!menuDisplay)
+		if (menuDisplay) {
+			setdisplayMenuStyle('')
+		} else {
+			setdisplayMenuStyle('none')
+		}
+	}
+
 	return (
 		<div className='navbar bg-base-100'>
 			<div className='navbar-start'>
-				<div className='dropdown' data-dropdown-toggle='dropdow'>
+				<div
+					className='dropdown'
+					data-dropdown-toggle='dropdow'
+					onClick={showMenu}
+				>
 					<label tabIndex='0' className='btn btn-ghost btn-circle'>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
@@ -24,8 +39,9 @@ export default function Nav() {
 						</svg>
 					</label>
 					<ul
-						tabIndex='0'
 						className='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'
+						tabIndex='0'
+						style={{display: displayMenuStyle}}
 					>
 						<li>
 							<Link href='/'>
